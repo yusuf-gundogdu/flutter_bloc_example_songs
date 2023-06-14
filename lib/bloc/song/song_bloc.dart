@@ -29,7 +29,7 @@ class SongBloc extends Bloc<SongEvent, SongState> {
     List<Song> songs = [];
     // Load songs from the repository
     songs = await _repository.loadSongs();
-    if (songs != []) {
+    if (songs == []) {
       emit(SongLoadingFailure());
     } else {
       // Emit the SongLoadedState with the songs
